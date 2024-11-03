@@ -1,0 +1,56 @@
+.max-display {
+    max-width: 100%;
+    height: 100vh; /* Задаем высоту блока */
+    margin: 0 auto;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	width: 90%;
+}
+
+.center{
+	text-align: center;
+}
+
+
+#hot-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    padding: 10px 0;
+}
+
+/* Стили для кнопок */
+.hot-bar-button {
+    color: white;
+    text-align: center;
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Стили для эффекта при наведении */
+.hot-bar-button:hover {
+    background-color: #555;
+}
+
+/* Иконки кнопок */
+.hot-bar-icon {
+    font-size: 24px;
+    margin-bottom: 5px;
+}

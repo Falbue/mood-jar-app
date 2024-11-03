@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Баночка настроения</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    {% include 'modules/links.html' %}
+</head>
+<body class="max-display">
+    <div class="container">
+        <h1 class="center">Баночка настроения в разработке!</h1>
+        <p id="userId"></p> <!-- Место для вывода ID пользователя -->
+    </div>
+    <script type="text/javascript">
+        const tg = window.Telegram.WebApp;
+        tg.ready();
+        tg.MainButton.show();
+        tg.MainButton.setText("Закрыть");
+        tg.MainButton.onClick(() => {
+            tg.close();
+        });
+
+        const initData = tg.initData;
+        const queryParams = new URLSearchParams(initData);
+        const userJson = queryParams.get('user');
+        const user = JSON.parse(decodeURIComponent(userJson)); // Декодируем и парсим JSON
+        const userId = user.id;
+        if (userId === 1210146115) {
+            tg.SecondaryButton.show();
+            tg.SecondaryButton.setText("Перейти к банке");
+            tg.SecondaryButton.onClick(() => {
+                window.location.href = '/jar/' + userId;
+            });
+        }
+    </script>
+</body>
+</html>
