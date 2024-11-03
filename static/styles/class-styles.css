@@ -12,7 +12,6 @@
 .container{
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	justify-content: space-between;
 	width: 90%;
 }
@@ -53,4 +52,12 @@
 .hot-bar-icon {
     font-size: 24px;
     margin-bottom: 5px;
+}
+
+.link{
+    display: flex;
+    justify-content: space-between;
+    border-radius: 12px;
+    background-color: var(--theme-hint-color);
+    padding: 10px;
 }
