@@ -2,10 +2,30 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Пример страницы</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список пользователей</title>
 </head>
 <body>
-    <h1>Добро пожаловать на мою страницу!</h1>
-    <p>Это пример HTML-страницы, отображаемой сервером на Go.</p>
+    <h1>Список пользователей</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Имя пользователя</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{range .}}
+            <tr>
+                <td>{{.ID}}</td>
+                <td>{{.Username}}</td>
+            </tr>
+            {{else}}
+            <tr>
+                <td colspan="2">Нет пользователей</td>
+            </tr>
+            {{end}}
+        </tbody>
+    </table>
 </body>
 </html>
