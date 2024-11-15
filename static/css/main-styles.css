@@ -31,6 +31,7 @@ h1{
 	font-size: 64px;
 	color: var(--text-disabled-color);
 	position: absolute;
-	top: 80px; /* Сдвиг вниз на 80 пикселей */
-  	left: 80px; /* Сдвиг влево на 80 пикселей */
+/*	transform: translateY(-10%);*/
+  left: 80px;
+  top: 10px;
 }
