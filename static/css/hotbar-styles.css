@@ -1,0 +1,29 @@
+#hot-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--bg-second-color);
+    padding: 10px 0;
+}
+
+/* Стили для кнопок */
+.hot-bar-button {
+    text-align: center;
+    flex: 1;
+    padding: 4px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+/* Иконки кнопок */
+.hot-bar-icon {
+    width: 24px;
+    height: 24px;
+    fill: var(--text-color);
+    stroke: var(--text-color);
+}
