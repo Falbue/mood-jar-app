@@ -3,7 +3,8 @@
   .button-side{display: none}
   h1{
     font-size: 48px;
-    transform: translateY(-10%);
+    top: 0;
+    transform: translateY(10%);
     left: 10px;
   }
 }
