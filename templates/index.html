@@ -3,29 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Список пользователей</title>
+    <link rel="stylesheet" href="/static/css/main-styles.css?v=1.2">
+    <title>Mood Jar</title>
 </head>
-<body>
-    <h1>Список пользователей</h1>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Имя пользователя</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{range .}}
-            <tr>
-                <td>{{.ID}}</td>
-                <td>{{.Username}}</td>
-            </tr>
-            {{else}}
-            <tr>
-                <td colspan="2">Нет пользователей</td>
-            </tr>
-            {{end}}
-        </tbody>
-    </table>
+<body class="display">
+    <main>
+        <h1 id="username">#mood-jar</h1>
+
+        <div class="jar">
+            
+        </div>
+
+    </main>
 </body>
 </html>

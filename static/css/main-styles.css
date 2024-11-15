@@ -1,0 +1,25 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+
+/*цвета*/
+:root {
+  --bg-color: #1E173A;
+  --bg-second-color: #4C3A7D;
+  --text-color: #E8D7FF;
+  --text-disabled-color: #A28CBA;
+}
+
+body{
+	background-color: var(--bg-color);
+}
+
+h1{
+	font-size: 64px;
+	color: var(--text-disabled-color);
+	position: absolute;
+	top: 80px; /* Сдвиг вниз на 80 пикселей */
+  	left: 80px; /* Сдвиг влево на 80 пикселей */
+}
