@@ -4,7 +4,7 @@
     left: 0;
     width: 100%;
     justify-content: space-around;
-    background-color: var(--bg-second-color);
+    background-color: var(--tg-theme-secondary-bg-color, var(--bg-second-color));
     padding: 10px 0;
     display: none;
 }
@@ -25,6 +25,6 @@
 .hot-bar-icon {
     width: 24px;
     height: 24px;
-    fill: var(--text-color);
-    stroke: var(--text-color);
+    fill: var(--tg-theme-link-color, var(--text-color));
+    fill: var(--tg-theme-link-color, var(--text-color));
 }
