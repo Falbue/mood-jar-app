@@ -1,0 +1,42 @@
+.button-side {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background-color: var(--button);
+  border-radius: 24px 0 0 24px;
+  padding: 10px;
+  width: 48px;
+  box-sizing: border-box;
+  transition: 0.3s ease-in-out;
+}
+
+.button-side svg {
+  width: 32px;
+  height: 32px;
+}
+
+.button-side:hover {
+  width: 60px; /* Увеличьте значение по вашему усмотрению */
+}
+
+.button-left {
+  left: 0;
+  right: auto;
+  border-radius: 0 24px 24px 0;
+}
+
+.text{
+  fill: var(--text-color);
+  stroke: var(--text-color);
+}
+
+.jar{
+  width: 350px;
+  fill: var(--text-color);
+  stroke: var(--text-color);
+}
+jar{width: 350px}

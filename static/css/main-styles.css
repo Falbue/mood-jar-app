@@ -1,6 +1,9 @@
 * {
 	padding: 0;
 	margin: 0;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 
@@ -10,10 +13,18 @@
   --bg-second-color: #4C3A7D;
   --text-color: #E8D7FF;
   --text-disabled-color: #A28CBA;
+  --button: #9B4DFF;
+  --border-radius: 12px;
 }
 
-body{
-	background-color: var(--bg-color);
+body {
+	height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-color);
+  overflow: hidden;
 }
 
 h1{
@@ -22,4 +33,47 @@ h1{
 	position: absolute;
 	top: 80px; /* Сдвиг вниз на 80 пикселей */
   	left: 80px; /* Сдвиг влево на 80 пикселей */
+}
+
+.jar{
+	width: 350px;
+	fill: var(--text-color);
+	stroke: var(--text-color);
+}
+jar{width: 350px}
+
+.text{
+	fill: var(--text-color);
+	stroke: var(--text-color);
+}
+
+.button-side {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background-color: var(--button);
+  border-radius: 24px 0 0 24px;
+  padding: 10px;
+  width: 48px;
+  box-sizing: border-box;
+  transition: 0.3s ease-in-out;
+}
+
+.button-side svg {
+  width: 32px;
+  height: 32px;
+}
+
+.button-side:hover {
+  width: 60px; /* Увеличьте значение по вашему усмотрению */
+}
+
+.button-left {
+  left: 0;
+  right: auto;
+  border-radius: 0 24px 24px 0;
 }
