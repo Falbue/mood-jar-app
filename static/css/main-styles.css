@@ -9,12 +9,30 @@
 
 /*цвета*/
 :root {
-  --bg-color: #1E173A;
-  --bg-second-color: #4C3A7D;
-  --text-color: #E8D7FF;
-  --text-disabled-color: #A28CBA;
-  --button: #9B4DFF;
   --border-radius: 12px;
+}
+
+/* Стили для тёмной темы */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #1E173A; /* фон для тёмной темы */
+    --bg-second-color: #4C3A7D; /* второй фон для тёмной темы */
+    --text-color: #E8D7FF; /* светлый текст для тёмной темы */
+    --text-disabled-color: #A28CBA; /* тусклый текст для неактивных элементов */
+    --button: #9B4DFF; /* яркая кнопка */
+  }
+}
+
+/* Стили для светлой темы */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-color: #FFFFFF; /* светлый фон */
+    --bg-second-color: #F0F0F0; /* светлый второй фон */
+    --text-color: #333333; /* тёмный текст */
+    --text-disabled-color: #B0B0B0; /* тусклый текст для неактивных элементов */
+    --button: #6200EE; /* кнопка в светлой теме */
+  }
+}
   
 /*  --tg-theme-accent-text-color: #eea4a0;
   --tg-theme-bg-color: #282e33;
@@ -31,7 +49,6 @@
   --tg-theme-section-separator-color: #242a2e;
   --tg-theme-subtitle-text-color: #82868a;
   --tg-theme-text-color: #f5f5f5;*/
-}
 
 body {
 	height: 100vh;
@@ -39,7 +56,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: var(--bg-color);
+  background-color: var(--tg-theme-bg-color, var(--bg-color));
   overflow: hidden;
 }
 
