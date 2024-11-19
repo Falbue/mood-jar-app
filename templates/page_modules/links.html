@@ -1,0 +1,7 @@
+{% for css_file in css_files %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/' + css_file) }}">
+{% endfor %}
+
+{% for js_file in js_files %}
+<script src="{{ url_for('static', filename='js/' + js_file) }}" defer></script>
+{% endfor %}
