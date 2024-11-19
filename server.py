@@ -4,8 +4,6 @@ import sqlite3
 import os
 import random
 
-VERSION = "1.0.3.2"
-print(f"Текущая версия {VERSION}")
 
 app = Flask(__name__)
 
