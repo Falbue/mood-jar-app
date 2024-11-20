@@ -7,6 +7,8 @@ import hashlib
 import json
 from app_modules.scripts import *
 
+VERSION = '0.0.1'
+print(VERSION)
 
 app = Flask(__name__)
 
