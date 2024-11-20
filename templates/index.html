@@ -7,21 +7,38 @@
 </head>
 <body class="display">
     {% include 'page_modules/menu.html' %}
-    {% include 'page_modules/menu-registration.html' %}
+    {% if message == "registration" %}
+        {% include 'page_modules/menu-registration.html' %}
+    {% elif message == "username" %}
+        {% include 'page_modules/username.html' %}
+    {% endif %}
     <div id="hot-bar">
         <div class="hot-bar-button"><EnterSvg name="users" class="hot-bar-icon"></EnterSvg></div>
         <div class="hot-bar-button"><EnterSvg name="add" class="hot-bar-icon"></EnterSvg></div>
         <a class="hot-bar-button"><EnterSvg name="settings" class="hot-bar-icon"></EnterSvg></a>
     </div>
+        {% if user %}
+        <h1 id="username">#{{ user }}</h1>
+        {% else %}
         <h1 id="username">#mood-jar</h1>
+        {% endif %}
     <main>
 
         <div>
             <EnterSvg name="jar" class="jar"></EnterSvg>
         </div>
 
-        <a class="button-side" open-menu="registration"><EnterSvg name="settings" class="text"></EnterSvg></a>
+        <a class="button-side" open-sidebar="sidebar_settings"><EnterSvg name="settings" class="text"></EnterSvg></a>
         <a class="button-side button-left" open-sidebar="sidebar_friends"><EnterSvg name="users" class="text"></EnterSvg></a>
     </main>
+    <script>
+    function logout() {
+      // Удаляем куку с именем 'user'
+      document.cookie = "user=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+      
+      // Перенаправляем пользователя на главную страницу
+      window.location.href = '/';
+    }
+  </script>
 </body>
 </html>

@@ -108,9 +108,9 @@ form{
   flex-direction: column;
   align-items: center;
 }
+form div{width: 100%;}
 
 .inputs{
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -125,6 +125,4 @@ form{
   align-items: center;
   justify-content: space-between;
 }
-.container-buttons button{
-  width: 48%;
-}
+.container-buttons button{width: 100%;}

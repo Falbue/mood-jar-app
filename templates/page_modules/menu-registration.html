@@ -6,20 +6,19 @@
         <h4>Добро пожаловать</h4>
     </header>
     <div class="menu-body">
-        <form action="">
+        <form action="/" method="POST">
             <div class="inputs">
                 <div>
                     <h4>E-mail:</h4>
-                    <input type="email" placeholder="Введите E-mail:">
+                    <input type="email" name="email" placeholder="Введите E-mail:">
                 </div>
                 <div>
                     <h4>Пароль:</h4>
-                    <input type="password" placeholder="Введите пароль:">
+                    <input type="password" name="password" placeholder="Введите пароль:">
                 </div>
             </div>
             <div class="container-buttons">
-                <button><h4>Регистрация</h4></button>
-                <button><h4>Войти</h4></button>
+                <button type="submit" name="action" value="login"><h4>Войти</h4></button>
             </div>
         </form>
     </div>

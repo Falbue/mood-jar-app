@@ -1,0 +1,21 @@
+<div id="overlay" class="overlay show"></div>
+
+<div id="username" class="menu show">
+    <header>
+        <EnterSvg name="add" class="text"></EnterSvg>
+        <h4>Имя пользователя</h4>
+    </header>
+    <div class="menu-body">
+        <form action="/username" method="POST">
+            <div class="inputs">
+                <div>
+                    <h4>Имя:</h4>
+                    <input type="text" name="username" placeholder="Введите желаемое имя:">
+                </div>
+            </div>
+            <div class="container-buttons">
+                <button type="submit" name="action" value="username"><h4>Сохранить</h4></button>
+            </div>
+        </form>
+    </div>
+</div>
