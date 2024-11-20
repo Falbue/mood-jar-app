@@ -107,4 +107,23 @@ def username():
 
     return resp
 
+
+@app.route('/get_mood_data', methods=['GET'])
+def get_mood_data():
+    # Получаем текущую дату в формате YYYY.MM.DD
+    date, time = now_time()
+    token = request.cookies.get('user')
+    user = SQL_request('SELECT * FROM users WHERE token = ?', (token,))
+    jar = json.loads(user[6])
+    
+    if "2024.11.03" in jar:
+        return jsonify(jar["2024.11.03"])
+    else:
+        print(date)
+        print(json.loads(user[6]))
+        return jsonify({"error": "No data for today"}), 404
+
+
+
+
 app.run(host='0.0.0.0', port=80)
