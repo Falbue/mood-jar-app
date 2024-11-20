@@ -116,8 +116,8 @@ def get_mood_data():
     user = SQL_request('SELECT * FROM users WHERE token = ?', (token,))
     jar = json.loads(user[6])
     
-    if "2024.11.03" in jar:
-        return jsonify(jar["2024.11.03"])
+    if date in jar:
+        return jsonify(jar[date])
     else:
         print(date)
         print(json.loads(user[6]))
