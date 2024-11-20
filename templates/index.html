@@ -6,10 +6,12 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body class="display">
+    {% include 'page_modules/menu.html' %}
+    {% include 'page_modules/menu-registration.html' %}
     <div id="hot-bar">
         <div class="hot-bar-button"><EnterSvg name="users" class="hot-bar-icon"></EnterSvg></div>
         <div class="hot-bar-button"><EnterSvg name="add" class="hot-bar-icon"></EnterSvg></div>
-        <div class="hot-bar-button"><EnterSvg name="settings" class="hot-bar-icon"></EnterSvg></div>
+        <a class="hot-bar-button"><EnterSvg name="settings" class="hot-bar-icon"></EnterSvg></a>
     </div>
         <h1 id="username">#mood-jar</h1>
     <main>
@@ -18,8 +20,8 @@
             <EnterSvg name="jar" class="jar"></EnterSvg>
         </div>
 
-        <div class="button-side"><EnterSvg name="settings" class="text"></EnterSvg></div>
-        <div class="button-side button-left"><EnterSvg name="users" class="text"></EnterSvg></div>
+        <a class="button-side" open-menu="registration"><EnterSvg name="settings" class="text"></EnterSvg></a>
+        <a class="button-side button-left" open-sidebar="sidebar_friends"><EnterSvg name="users" class="text"></EnterSvg></a>
     </main>
 </body>
 </html>
