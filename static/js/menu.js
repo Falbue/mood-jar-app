@@ -20,6 +20,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function hideAllMenus() {
         document.querySelectorAll('.menu').forEach(m => hideElement(m));
     }
+    function hideAllSidebars() {
+        sidebars.forEach(m => hideElement(m));
+    }
 
     // Логика для меню
     links.forEach(link => {
@@ -40,17 +43,32 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function(event) {
             event.preventDefault();
             const sidebarId = this.getAttribute('open-sidebar');
-            const sidebar = document.querySelector(`.sidebar#${sidebarId}`); // Поиск конкретного сайдбара по классу и ID
-            showElement(sidebar); // Показать выбранный сайдбар
-        });
+        const sidebar = document.querySelector(`.sidebar#${sidebarId}`); // Поиск конкретного сайдбара по классу и ID
+        
+        if (sidebar.id === "sidebar_mood") {
+            const buttons = document.querySelectorAll('.button-side');
+            buttons.forEach(button => {
+                hideElement(button); // Скрыть каждый элемент
+                hideAllSidebars();
+            });
+        }
+        showElement(sidebar); // Показать выбранный сайдбар
     });
+    });
+
 
     sidebarClsoe.forEach(button => {
         button.addEventListener('click', function(event) {
             event.preventDefault();
             const sidebarId = this.getAttribute('close-sidebar');
             const sidebar = document.querySelector(`.sidebar#${sidebarId}`); // Поиск конкретного сайдбара по классу и ID
-            hideElement(sidebar); // Показать выбранный сайдбар
+            hideElement(sidebar);
+            if (sidebar.id === "sidebar_mood") {
+            const buttons = document.querySelectorAll('.button-side');
+            buttons.forEach(button => {
+                showElement(button); // Скрыть каждый элемент
+            });
+        }
         });
     });
 

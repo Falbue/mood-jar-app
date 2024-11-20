@@ -27,10 +27,16 @@
         <div>
             <EnterSvg name="jar" class="jar"></EnterSvg>
         </div>
-
         <a class="button-side" open-sidebar="sidebar_settings"><EnterSvg name="settings" class="text"></EnterSvg></a>
         <a class="button-side button-left" open-sidebar="sidebar_friends"><EnterSvg name="users" class="text"></EnterSvg></a>
+        <a id="open-mood" open-sidebar='sidebar_mood'>
+            <div class="line"></div>
+            <EnterSvg name="arrow" class="text"></EnterSvg>
+            <div class="line"></div>
+        </a>
     </main>
+
+
     <script>
     function logout() {
       // Удаляем куку с именем 'user'

@@ -13,6 +13,14 @@
   box-sizing: border-box;
   transition: 0.3s ease-in-out;
 }
+.button-side.close{
+  opacity: 0;
+  visibility: hidden;
+}
+.button-side.show{
+  opacity: 1;
+  visibility: visible;
+}
 
 .button-side svg {
   width: 32px;
@@ -39,4 +47,71 @@
   fill: var(--text-adaptive);
   stroke: var(--text-adaptive);
 }
+
 jar{width: 350px}
+
+
+
+button, .button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 30px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background: rgb(155, 77, 255);
+  border-width: 0;
+  border-style: outset;
+  border-color: buttonborder;
+  border-image: initial;
+  transition: 150ms;
+  text-decoration: none;
+}
+
+button:hover, .button:hover {
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
+  transform: scale(1.02); /* Слегка уменьшает кнопку */
+}
+
+button:active, .button:active {
+  transform: scale(0.95); /* Слегка уменьшает кнопку */
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.4); /* Меняет тень */
+}
+
+#open-mood {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  padding-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+#open-mood svg {
+  fill: var(--button);
+  stroke: var(--button);
+  stroke-width: 0.1;
+  width: 32px;
+  height: 32px;
+  padding: 0 15px;
+  transition: transform 0.3s ease, fill 0.3s ease, stroke 0.3s ease;
+}
+
+#open-mood .line {
+  width: 100px;
+  height: 2px;
+  background-color: var(--button);
+  transition: width 0.3s ease;
+}
+
+#open-mood:hover svg {
+  transform: translateY(-5px); /* Поднимет SVG на 5 пикселей при наведении */
+}
+
+#open-mood:hover .line {
+  width: 150px;
+}
