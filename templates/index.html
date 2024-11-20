@@ -18,7 +18,7 @@
         <a class="hot-bar-button"><EnterSvg name="settings" class="hot-bar-icon"></EnterSvg></a>
     </div>
         {% if user %}
-        <h1 id="username">#{{ user }}</h1>
+        <h1 id="username">#{{ user[4] }}</h1>
         {% else %}
         <h1 id="username">#mood-jar</h1>
         {% endif %}
