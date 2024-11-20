@@ -1,10 +1,12 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap" rel="stylesheet">
     {% include 'page_modules/links.html' %}
     <title>Mood Jar</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mobile-styles.css') }}">
 </head>
 <body class="display">
     {% include 'page_modules/menu.html' %}
@@ -25,9 +27,11 @@
         {% endif %}
     <main>
 
-        <div>
-            <EnterSvg name="jar" class="jar"></EnterSvg>
+        <EnterSvg name="jar" class="jar"></EnterSvg>
+        <div id='container'>
+            <script src="{{ url_for('static', filename='js/physics.js') }}"></script>
         </div>
+
         <a class="button-side" open-sidebar="sidebar_settings"><EnterSvg name="settings" class="text"></EnterSvg></a>
         <a class="button-side button-left" open-sidebar="sidebar_friends"><EnterSvg name="users" class="text"></EnterSvg></a>
         <a id="open-mood" open-sidebar='sidebar_mood'>
@@ -47,70 +51,5 @@
       window.location.href = '/';
     }
   </script>
-</body>
-</html> -->
-
-
-
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Наклон устройства</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-        .output {
-            font-size: 24px;
-            margin: 10px;
-        }
-    </style>
-</head>
-<body>
-    <h1>Наклон устройства</h1>
-    <div class="output">Alpha (Z): <span id="alpha">0</span>°</div>
-    <div class="output">Beta (X): <span id="beta">0</span>°</div>
-    <div class="output">Gamma (Y): <span id="gamma">0</span>°</div>
-    <div class="output">Общий угол наклона: <span id="angle">0</span>°</div>
-
-    <script>
-        // Для iOS браузеров необходимо запросить разрешение
-        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-            DeviceOrientationEvent.requestPermission()
-                .then(response => {
-                    if (response === 'granted') {
-                        initOrientationListener();
-                    } else {
-                        alert('Разрешение на доступ к датчикам отклонено');
-                    }
-                })
-                .catch(console.error);
-        } else {
-            // Для других браузеров можно сразу добавить слушатель
-            initOrientationListener();
-        }
-
-        // Инициализация слушателя события deviceorientation
-        function initOrientationListener() {
-            window.addEventListener('deviceorientation', function(event) {
-                var alpha = event.alpha; // угловая ориентация по оси Z
-                var beta = event.beta;   // угол наклона по оси X
-                var gamma = event.gamma; // угол наклона по оси Y
-
-                // Обновляем содержимое на странице
-                document.getElementById('alpha').textContent = alpha.toFixed(2);
-                document.getElementById('beta').textContent = beta.toFixed(2);
-                document.getElementById('gamma').textContent = gamma.toFixed(2);
-
-                // Рассчитываем общий угол наклона
-                var angle = Math.sqrt(beta * beta + gamma * gamma); // Общий угол наклона устройства
-                document.getElementById('angle').textContent = angle.toFixed(2);
-            });
-        }
-    </script>
 </body>
 </html>

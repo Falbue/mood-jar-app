@@ -110,3 +110,16 @@ form div{width: 100%;}
   justify-content: space-between;
 }
 .container-buttons button{width: 100%;}
+
+
+#container {
+  position: relative;
+  width: 350px;
+  height: 490px;
+  border: 0px solid black;
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+}

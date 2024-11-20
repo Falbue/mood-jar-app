@@ -1,6 +1,7 @@
 @media (max-width: 600px) {
   #hot-bar{display: flex;}
   .button-side{display: none}
+  #open-mood{display: none}
   h1{
     font-size: 48px;
     left: 10px;

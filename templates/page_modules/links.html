@@ -2,6 +2,6 @@
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/' + css_file) }}">
 {% endfor %}
 
-{% for js_file in js_files %}
-<script src="{{ url_for('static', filename='js/' + js_file) }}" defer></script>
-{% endfor %}
+<script src="{{ url_for('static', filename='js/svg.js') }}" defer></script>
+<script src="{{ url_for('static', filename='js/menu.js') }}" defer></script>
+<script src="{{ url_for('static', filename='js/matter.js') }}"></script>
