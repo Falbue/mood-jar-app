@@ -70,7 +70,7 @@ def index():
             if user is None:
                 return render_template('index.html', message='registration')
             else:
-                return render_template('index.html', user=user)
+                return render_template('index.html', user=user, user_moods=json.loads(user[7]))
         elif username_cookie:
             return render_template('index.html', message='username')
         else:

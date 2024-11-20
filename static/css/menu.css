@@ -162,7 +162,10 @@ header svg {
     transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
 }
 
-
+.sidebar-bottom .sidebar-body{}
+.sidebar-bottom .container{
+    flex-direction: row;
+}
 
 .design{
     height: 100%;
@@ -185,4 +188,10 @@ header svg {
 
 .design a svg:hover{
     stroke-width: 0.8px;
+}
+
+
+.mood-icons{
+    display: flex;
+    width: 100%;
 }

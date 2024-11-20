@@ -53,6 +53,10 @@ body {
   align-items: center;
 }
 
+a{text-decoration: none; cursor: pointer;}
+
+.emoji {font-family: 'Noto Color Emoji', sans-serif;}
+
 h1{
 	font-size: 64px;
 	color: var(--text-disabled-color);
