@@ -64,7 +64,7 @@ const ballOptions = {
 
 let emojiList = []; // Массив для эмодзи
 
-fetch('http://192.168.0.110:80/get_mood_data')
+fetch('http://falbue.ru/get_mood_data')
   .then(response => response.json())
   .then(data => {
     if (data.error) {
