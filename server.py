@@ -4,6 +4,7 @@ import sqlite3
 import os
 import random
 import hashlib
+import json
 from app_modules.scripts import *
 
 
@@ -47,9 +48,13 @@ def index():
         else:
             date, time = now_time()
             date = f"{date} {time}"
+            mood = {"😊": "Радость", "😢": "Грусть", "😐": "Равнодушие", "😁": "Восторг", "😴": "Усталость"}
+            topics = {"1": "Партнёр", "2": "Работа", "3": "Учёба", "4": "Здоровье", "5": "Друзья"}
+            mood_json = json.dumps(mood, ensure_ascii=False)
+            topics_json = json.dumps(topics, ensure_ascii=False)
             # Если пользователя нет, создаем новый
-            SQL_request('INSERT INTO users (email, password, time_registration, auth_method) VALUES (?, ?, ?, ?)',
-                (email, hashed_password, date, "email"))
+            SQL_request('INSERT INTO users (mood, topics, email, password, time_registration, auth_method) VALUES (?, ?, ?, ?, ? , ?)',
+                (mood_json, topics_json, email, hashed_password, date, "email"))
 
             # Создаем куку для регистрации
             resp = make_response(redirect(url_for('index')))
@@ -62,7 +67,10 @@ def index():
     
         if user_cookie:
             user = SQL_request('SELECT * FROM users WHERE token = ?', (user_cookie,))
-            return render_template('index.html', user=user)
+            if user is None:
+                return render_template('index.html', message='registration')
+            else:
+                return render_template('index.html', user=user)
         elif username_cookie:
             return render_template('index.html', message='username')
         else:
