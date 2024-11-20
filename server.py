@@ -27,6 +27,14 @@ def inject_files():
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
+    # Получаем значение куки с именем 'user'
+    user_cookie = request.cookies.get('user')
+
+    if user_cookie:
+        # Если кука есть, просто рендерим страницу
+        return render_template('index.html', user=user_cookie)
+    else:
+        # Если куки нет, выводим сообщение
+        return render_template('index.html', message="Кука 'user' отсутствует!")
 
 app.run(host='0.0.0.0', port=80)
