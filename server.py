@@ -7,7 +7,7 @@ import hashlib
 import json
 from app_modules.scripts import *
 
-VERSION = '0.0.7.4'
+VERSION = '0.0.8'
 print(VERSION)
 
 app = Flask(__name__)
@@ -153,4 +153,5 @@ def telegram_login():
         return jsonify({'status': 'error', 'message': str(e)}), 500
 
 
-app.run(host='0.0.0.0', port=5000)
+# app.run(host='0.0.0.0', port=5000)
+app.run(host='0.0.0.0', port=80)
