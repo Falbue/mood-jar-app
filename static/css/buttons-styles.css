@@ -70,6 +70,7 @@ button, .button {
   border-image: initial;
   transition: 150ms;
   text-decoration: none;
+  width: 100%;
 }
 
 button:hover, .button:hover {

@@ -49,19 +49,20 @@
 }
 
 .menu.show {
+    transform: translate(-50%, -50%) scale(1);
     opacity: 1;
     visibility: visible;
-    transform: translate(-50%, -50%) scale(1);
 }
 
 .menu.close {
+    transform: translate(-50%, -50%) scale(0.5);
     opacity: 0;
     visibility: hidden;
-    transform: translate(-50%, -50%) scale(0.5);
 }
 
 .menu::-webkit-scrollbar {
     width: 8px;
+    color: var(--bg-second-color);
 }
 
 header svg {
@@ -79,7 +80,6 @@ header svg {
     width: 250px; /* Ширина бокового меню */
     height: 100%;
     background-color: var(--bg-second-color);
-    z-index: 1002;
     transition: opacity 0.3s ease, transform 0.3s ease;
     display: flex;
 }
@@ -87,6 +87,7 @@ header svg {
 .sidebar.show {
     visibility: visible;
     transform: translateX(0);
+    z-index: 100;
 }
 
 .sidebar.close{
@@ -126,7 +127,7 @@ header svg {
     justify-content: space-between;
     margin: 50px 0 20px 0;
 }
-
+.sidebar-body .button{width: auto;}
 
 .sidebar-bottom{
     position: fixed;
@@ -162,9 +163,24 @@ header svg {
     transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
 }
 
-.sidebar-bottom .sidebar-body{}
+.sidebar-bottom .sidebar-body{
+    width: auto;
+    margin: 20px 0;
+    height: 100%;
+}
 .sidebar-bottom .container{
     flex-direction: row;
+    height: 100%;
+}
+
+.mood-link .emoji{
+    padding: 0 10px;
+    font-size: 32px;
+    transition: 0.3s ease;;
+}
+.mood-link .emoji:hover{
+    transform: scale(1.02);
+    transform: translateY(-5px);
 }
 
 .design{

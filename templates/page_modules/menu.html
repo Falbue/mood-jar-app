@@ -38,12 +38,26 @@
             {% if user %}
             <div class="mood-icons">
                 {% for emoji, mood in user_moods.items() %}
-                <a class="mood-link" title="{{ mood }}"><h4 class="emoji">{{ emoji }}</h4></a>
+                <a class="mood-link" open-menu="add-mood" title="{{ mood }}"><h4 class="emoji">{{ emoji }}</h4></a>
                 {% endfor %}
             </div>
             {% else %}
             <h4>Настроение не найдено</h4>
             {% endif %}
         </div>
+    </div>
+</div>
+
+
+<div id="add-mood" class="menu close">
+    <header>
+        <EnterSvg name="add" class="text"></EnterSvg>
+        <h4>Новое настроение</h4>
+    </header>
+    <div class="menu-body">
+        <div class="container">
+            <textarea></textarea>
+        </div>
+        <button><h4>Добавить</h4></button>
     </div>
 </div>
