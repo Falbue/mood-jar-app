@@ -7,7 +7,7 @@ import hashlib
 import json
 from app_modules.scripts import *
 
-VERSION = '0.0.7.2'
+VERSION = '0.0.7.3'
 print(VERSION)
 
 app = Flask(__name__)
@@ -42,8 +42,10 @@ def index():
         if user:
             # Если пользователь существует, проверяем пароль
             if user[12] == hashed_password:
+                token = hashlib.sha256(user[4].encode()).hexdigest() 
+                SQL_request("UPDATE users SET token = ? WHERE username = ?", (token, user[4]))
                 resp = make_response(redirect(url_for('index')))
-                resp.set_cookie('user', user[15])
+                resp.set_cookie('user', token)
                 return resp
             else:
                 return "Неверный пароль", 400
@@ -137,7 +139,7 @@ def telegram_login():
         print(f"Полученные данные {first_name} {last_name} {username}")
 
         token = hashlib.sha256(username.encode()).hexdigest() 
-        SQL_request("UPDATE users SET token = ?, WHERE username = ?", (token, username))
+        SQL_request("UPDATE users SET token = ? WHERE username = ?", (token, username))
 
 
         resp = make_response(redirect(url_for('index')))
