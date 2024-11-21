@@ -153,4 +153,4 @@ def telegram_login():
         return jsonify({'status': 'error', 'message': str(e)}), 500
 
 
-app.run(host='0.0.0.0', port=80)
+app.run(host='0.0.0.0', port=5000)
