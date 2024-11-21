@@ -7,7 +7,7 @@ import hashlib
 import json
 from app_modules.scripts import *
 
-VERSION = '0.0.4'
+VERSION = '0.0.6'
 print(VERSION)
 
 app = Flask(__name__)
@@ -125,17 +125,27 @@ def get_mood_data():
         print(json.loads(user[6]))
         return jsonify({"error": "No data for today"}), 404
 
-@app.route('/telegram_login', methods=['GET', 'POST'])
+@app.route('/telegram_login', methods=['POST'])
 def telegram_login():
-    # Получение данных пользователя из запроса
-    user = request.args.get('user', '')  # Например, передается как параметр
-    if not user:
-        return "User data not provided", 400  # Возврат ошибки, если данных нет
-    
-    # Создание ответа и добавление cookie
-    resp = make_response(redirect(url_for('index')))
-    resp.set_cookie('user', user)  # Сохраняем пользователя в cookies
-    # return resp
+    try:
+        # Извлечение данных из запроса
+        data = request.get_json()
+        first_name = data.get('first_name')
+        last_name = data.get('last_name')
+        username = data.get('username')
+
+        # Логирование полученных данных (или обработка)
+        print(f"Получено: {first_name} {last_name} ({username})")
+
+        # Здесь можно добавить сохранение в базу данных или другую логику
+
+        # Возвращаем успешный ответ
+        return jsonify({'status': 'success', 'message': 'Данные получены'}), 200
+
+    except Exception as e:
+        # Обработка ошибок
+        print(f"Ошибка: {e}")
+        return jsonify({'status': 'error', 'message': str(e)}), 500
 
 
 app.run(host='0.0.0.0', port=80)
