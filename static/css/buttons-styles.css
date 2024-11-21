@@ -44,8 +44,6 @@
 
 .jar{
   width: 350px;
-  fill: var(--text-adaptive);
-  stroke: var(--text-adaptive);
   position: absolute;
   top: 50%;
   transform: translateY(-50%);

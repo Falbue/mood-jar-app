@@ -1,0 +1,5 @@
+.jar{
+	fill: var(--tg-theme-link-color, var(--text-adaptive));
+  	stroke: var(--tg-theme-link-color, var(--text-adaptive));
+}
+.design{background-color: var(--tg-theme-secondary-bg-color, var(--bg-color));}
