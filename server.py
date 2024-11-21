@@ -125,7 +125,17 @@ def get_mood_data():
         print(json.loads(user[6]))
         return jsonify({"error": "No data for today"}), 404
 
-
+@app.route('/telegram_login', methods=['GET', 'POST'])
+def telegram_login():
+    # Получение данных пользователя из запроса
+    user = request.args.get('user', '')  # Например, передается как параметр
+    if not user:
+        return "User data not provided", 400  # Возврат ошибки, если данных нет
+    
+    # Создание ответа и добавление cookie
+    resp = make_response(redirect(url_for('index')))
+    resp.set_cookie('user', user)  # Сохраняем пользователя в cookies
+    # return resp
 
 
 app.run(host='0.0.0.0', port=80)
