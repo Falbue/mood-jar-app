@@ -7,7 +7,7 @@ import hashlib
 import json
 from app_modules.scripts import *
 
-VERSION = '0.0.7.1'
+VERSION = '0.0.7.2'
 print(VERSION)
 
 app = Flask(__name__)
@@ -133,6 +133,8 @@ def telegram_login():
         first_name = data.get('first_name')
         last_name = data.get('last_name')
         username = data.get('username')
+
+        print(f"Полученные данные {first_name} {last_name} {username}")
 
         token = hashlib.sha256(username.encode()).hexdigest() 
         SQL_request("UPDATE users SET token = ?, WHERE username = ?", (token, username))
