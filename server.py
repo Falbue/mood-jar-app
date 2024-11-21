@@ -7,7 +7,7 @@ import hashlib
 import json
 from app_modules.scripts import *
 
-VERSION = '0.0.6'
+VERSION = '0.0.7'
 print(VERSION)
 
 app = Flask(__name__)
@@ -134,13 +134,15 @@ def telegram_login():
         last_name = data.get('last_name')
         username = data.get('username')
 
-        # Логирование полученных данных (или обработка)
-        print(f"Получено: {first_name} {last_name} ({username})")
+        token = hashlib.sha256(username.encode()).hexdigest() 
+        SQL_request("UPDATE users SET token = ?, WHERE username = ?", (token, username))
 
-        # Здесь можно добавить сохранение в базу данных или другую логику
 
-        # Возвращаем успешный ответ
-        return jsonify({'status': 'success', 'message': 'Данные получены'}), 200
+        resp = make_response(redirect(url_for('index')))
+        resp.set_cookie('registration', '', expires=0)
+        resp.set_cookie('user', token)
+
+    return resp
 
     except Exception as e:
         # Обработка ошибок
