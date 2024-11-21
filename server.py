@@ -7,7 +7,7 @@ import hashlib
 import json
 from app_modules.scripts import *
 
-VERSION = '0.0.7'
+VERSION = '0.0.7.1'
 print(VERSION)
 
 app = Flask(__name__)
@@ -141,8 +141,7 @@ def telegram_login():
         resp = make_response(redirect(url_for('index')))
         resp.set_cookie('registration', '', expires=0)
         resp.set_cookie('user', token)
-
-    return resp
+        return resp
 
     except Exception as e:
         # Обработка ошибок
