@@ -6,11 +6,13 @@ import random
 import hashlib
 import json
 from app_modules.scripts import *
+from api import api_bp
 
 VERSION = '0.0.8'
 print(VERSION)
 
 app = Flask(__name__)
+app.register_blueprint(api_bp, url_prefix='/api')
 
 def get_files(directory, extensions):
     file_list = []

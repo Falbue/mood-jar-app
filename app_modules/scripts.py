@@ -21,12 +21,15 @@ def now_time():  # Получение текущего времени по МС�
     current_date = now_moscow.strftime("%Y.%m.%d")
     return current_date, current_time
 
-def SQL_request(request, params=()):  # Выполнение SQL-запросов
+def SQL_request(request, params=(), all_data=False):  # Выполнение SQL-запросов
     connect = sqlite3.connect(DB_PATH)
     cursor = connect.cursor()
     if request.strip().lower().startswith('select'):
         cursor.execute(request, params)
-        result = cursor.fetchone()
+        if all_data:
+            result = cursor.fetchall()
+        else:
+            result = cursor.fetchone()
         connect.close()
         return result
     else:
