@@ -152,6 +152,8 @@ def telegram_login():
         print(f"Ошибка: {e}")
         return jsonify({'status': 'error', 'message': str(e)}), 500
 
-
-# app.run(host='0.0.0.0', port=5000)
-app.run(host='0.0.0.0', port=80)
+try:
+    app.run(host='0.0.0.0', port=80)
+except:
+    print("Сервер запущен на порту 5000")
+    app.run(host='0.0.0.0', port=5000)
